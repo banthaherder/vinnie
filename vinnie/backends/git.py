@@ -17,7 +17,7 @@ class VinnieGit(BaseBackend):
     def get_current_version(self):
         """ Get the current version """
         try:
-            version = self.repo.git.describe(tags=True)
+            version = self.repo.tags[-1].name
         except GitCommandError:
             version = self.get_initial_version()
 
